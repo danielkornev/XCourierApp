@@ -4,8 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCourierApp.Android", "XCourierApp.Android\XCourierApp.Android.csproj", "{404E269F-42C5-4049-AA60-00A3AE456410}"
+	ProjectSection(ProjectDependencies) = postProject
+		{28325231-AEE3-4793-B182-806FF677C957} = {28325231-AEE3-4793-B182-806FF677C957}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCourierApp", "XCourierApp\XCourierApp.csproj", "{EAF9D101-1084-408E-910D-C36176CCB501}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XCourierApp", "XCourierApp\XCourierApp.csproj", "{EAF9D101-1084-408E-910D-C36176CCB501}"
+	ProjectSection(ProjectDependencies) = postProject
+		{28325231-AEE3-4793-B182-806FF677C957} = {28325231-AEE3-4793-B182-806FF677C957}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xamarin.Forms.Inking", "Xamarin.Forms.Inking\Xamarin.Forms.Inking.csproj", "{28325231-AEE3-4793-B182-806FF677C957}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xamarin.Forms.Inking.Tests", "Xamarin.Forms.Inking.Tests\Xamarin.Forms.Inking.Tests.csproj", "{829FDE54-9F57-41B5-98A9-2A467DD65FC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +35,14 @@ Global
 		{EAF9D101-1084-408E-910D-C36176CCB501}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAF9D101-1084-408E-910D-C36176CCB501}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EAF9D101-1084-408E-910D-C36176CCB501}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{28325231-AEE3-4793-B182-806FF677C957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28325231-AEE3-4793-B182-806FF677C957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28325231-AEE3-4793-B182-806FF677C957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28325231-AEE3-4793-B182-806FF677C957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{829FDE54-9F57-41B5-98A9-2A467DD65FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{829FDE54-9F57-41B5-98A9-2A467DD65FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{829FDE54-9F57-41B5-98A9-2A467DD65FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{829FDE54-9F57-41B5-98A9-2A467DD65FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

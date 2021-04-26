@@ -1,24 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:dualScreen="clr-namespace:Xamarin.Forms.DualScreen;assembly=Xamarin.Forms.DualScreen"
+			 xmlns:inking_views="clr-namespace:Xamarin.Forms.Inking.Views;assembly=Xamarin.Forms.Inking"
              x:Class="XCourierApp.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+	<dualScreen:TwoPaneView x:Name="twoPaneView" MinWideModeWidth="0" MinTallModeHeight="0">
+		<dualScreen:TwoPaneView.Pane1>
+			<Grid Padding="0">
+				<Image x:Name="LeftPagePaperImage" Source="paper_1.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
+				<inking_views:InkCanvasView Margin="0,0" BackgroundColor="Transparent" x:Name="LeftInkCanvasView" 
+											MinimumHeightRequest="1800" MinimumWidthRequest="2700" 
+											HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CanvasWidth="2700" CanvasHeight="1800" />
+			</Grid>
+		</dualScreen:TwoPaneView.Pane1>
+		<dualScreen:TwoPaneView.Pane2>
+			<Grid Padding="0">
+				<!--  HorizontalOffset="{Binding HorizontalOffset, Mode=OneWay}"
+                                VerticalOffset="{Binding VerticalOffset, Mode=OneWay}"-->
+				<Image x:Name="RightPagePaperImage" Source="paper_1.png" RotationY="180" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
+				<inking_views:InkCanvasView Margin="0,0" BackgroundColor="Transparent" x:Name="RightInkCanvasView" 
+											MinimumHeightRequest="1800" MinimumWidthRequest="2700" 
+											HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CanvasWidth="2700" CanvasHeight="1800"/>
+			</Grid>
+		</dualScreen:TwoPaneView.Pane2>
+	</dualScreen:TwoPaneView>
 
 </ContentPage>
