@@ -19,8 +19,27 @@ namespace XCourierApp
 		public MainPage()
 		{
 			InitializeComponent();
+
+			//twoPaneView.TallModeConfiguration = Xamarin.Forms.DualScreen.TwoPaneViewTallModeConfiguration.SinglePane;
+
+			// priority is to pane 1
+			twoPaneView.PanePriority = TwoPaneViewPriority.Pane1;
+			
+
+			//twoPaneView.MinWideModeWidth = 1400;
+			//twoPaneView.MinTallModeHeight = 1800;
+			//twoPaneView.Pane
+
+			// by default, Android app opens on one screen not two
+			//twoPaneView.Mode = TwoPaneViewMode.SinglePane;
 		}
 
 
-    } // class 
+		protected bool DeviceIsSpanned => DualScreenInfo.Current.SpanMode != TwoPaneViewMode.SinglePane;
+
+		private void Button_Clicked(object sender, EventArgs e)
+		{
+			var di = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+		}
+	} // class 
 } // namespace

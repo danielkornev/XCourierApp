@@ -5,13 +5,19 @@
 			 xmlns:inking_views="clr-namespace:Xamarin.Forms.Inking.Views;assembly=Xamarin.Forms.Inking"
              x:Class="XCourierApp.MainPage">
 
-	<dualScreen:TwoPaneView x:Name="twoPaneView" MinWideModeWidth="0" MinTallModeHeight="0">
+	<dualScreen:TwoPaneView x:Name="twoPaneView" 
+		MinWideModeWidth="1351"
+        MinTallModeHeight="1800"
+		Pane1Length="*"
+		Pane2Length="*"
+		TallModeConfiguration="SinglePane">
 		<dualScreen:TwoPaneView.Pane1>
 			<Grid Padding="0">
 				<Image x:Name="LeftPagePaperImage" Source="paper_1.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
 				<inking_views:InkCanvasView Margin="0,0" BackgroundColor="Transparent" x:Name="LeftInkCanvasView" 
 											MinimumHeightRequest="1800" MinimumWidthRequest="2700" 
 											HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CanvasWidth="2700" CanvasHeight="1800" />
+				<Button Text="Test" Clicked="Button_Clicked" WidthRequest="150" HeightRequest="40" HorizontalOptions="Start" VerticalOptions="End"/>
 			</Grid>
 		</dualScreen:TwoPaneView.Pane1>
 		<dualScreen:TwoPaneView.Pane2>
