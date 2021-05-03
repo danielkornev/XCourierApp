@@ -14,6 +14,8 @@ namespace XCourierApp.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            Xamarin.Forms.Forms.SetFlags(new[] { "DragAndDrop_Experimental", "Shapes_Experimental" });
+
             base.OnCreate(savedInstanceState);
 
             // Dual Screen support

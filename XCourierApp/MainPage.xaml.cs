@@ -20,18 +20,65 @@ namespace XCourierApp
 		{
 			InitializeComponent();
 
-			//twoPaneView.TallModeConfiguration = Xamarin.Forms.DualScreen.TwoPaneViewTallModeConfiguration.SinglePane;
-
 			// priority is to pane 1
 			twoPaneView.PanePriority = TwoPaneViewPriority.Pane1;
+
+			LeftInkCanvasView.InkPresenter.InputDeviceTypes = XCoreInputDeviceTypes.Pen;
+			RightInkCanvasView.InkPresenter.InputDeviceTypes = XCoreInputDeviceTypes.Pen;
+
+			//LeftInkCanvasView.InkPresenter.
+		}
+		/// <summary>
+		/// detach the events when disappering
+		/// </summary>
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+
+			// Left Page's InkCanvas
+			LeftInkCanvasView.InkPresenter.StrokesCollected -= OnLeftInkCanvasViewStrokesCollected;
+			LeftInkCanvasView.InkPresenter.StrokesErased -= LeftInkCanvasViewPresenter_StrokesErased;
+
+			// Right Page's InkCanvas
+			LeftInkCanvasView.InkPresenter.StrokesCollected -= OnRightInkCanvasViewStrokesCollected;
+			LeftInkCanvasView.InkPresenter.StrokesErased -= RightInkCanvasViewPresenter_StrokesErased;
+		}
+
+
+		/// <summary>
+		/// Attach events and initialize the sketch data when appearing
+		/// </summary>
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+
+			// Left Page's InkCanvas
+			LeftInkCanvasView.InkPresenter.StrokesCollected += OnLeftInkCanvasViewStrokesCollected;
+			LeftInkCanvasView.InkPresenter.StrokesErased += LeftInkCanvasViewPresenter_StrokesErased;
+
+			// Right Page's InkCanvas
+			RightInkCanvasView.InkPresenter.StrokesCollected += OnRightInkCanvasViewStrokesCollected;
+			RightInkCanvasView.InkPresenter.StrokesErased += RightInkCanvasViewPresenter_StrokesErased;
+		}
+
+		private void LeftInkCanvasViewPresenter_StrokesErased(XInkPresenter sender, XInkStrokesErasedEventArgs args)
+		{
+			//LeftInkCanvasView.InvalidateCanvas(false, true);
+		}
+
+		private void OnLeftInkCanvasViewStrokesCollected(Xamarin.Forms.Inking.Interfaces.IInkPresenter sender, XInkStrokesCollectedEventArgs args)
+		{
 			
+		}
 
-			//twoPaneView.MinWideModeWidth = 1400;
-			//twoPaneView.MinTallModeHeight = 1800;
-			//twoPaneView.Pane
+		private void RightInkCanvasViewPresenter_StrokesErased(XInkPresenter sender, XInkStrokesErasedEventArgs args)
+		{
+			RightInkCanvasView.InvalidateCanvas(false, true);
+		}
 
-			// by default, Android app opens on one screen not two
-			//twoPaneView.Mode = TwoPaneViewMode.SinglePane;
+		private void OnRightInkCanvasViewStrokesCollected(Xamarin.Forms.Inking.Interfaces.IInkPresenter sender, XInkStrokesCollectedEventArgs args)
+		{
+			
 		}
 
 
@@ -40,6 +87,16 @@ namespace XCourierApp
 		private void Button_Clicked(object sender, EventArgs e)
 		{
 			var di = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+		}
+
+		private void ButtonDraw_Clicked(object sender, EventArgs e)
+		{
+			LeftInkCanvasView.InkPresenter.InputProcessingConfiguration.Mode = XInkInputProcessingMode.Inking;
+		}
+
+		private void ButtonErase_Clicked(object sender, EventArgs e)
+		{
+			LeftInkCanvasView.InkPresenter.InputProcessingConfiguration.Mode = XInkInputProcessingMode.Erasing;
 		}
 	} // class 
 } // namespace
