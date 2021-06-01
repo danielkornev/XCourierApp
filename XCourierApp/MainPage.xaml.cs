@@ -26,7 +26,15 @@ namespace XCourierApp
 			LeftInkCanvasView.InkPresenter.InputDeviceTypes = XCoreInputDeviceTypes.Pen;
 			RightInkCanvasView.InkPresenter.InputDeviceTypes = XCoreInputDeviceTypes.Pen;
 
-			//LeftInkCanvasView.InkPresenter.
+			// override
+
+			// Left Page's InkCanvas
+			LeftInkCanvasView.InkPresenter.StrokesCollected += OnLeftInkCanvasViewStrokesCollected;
+			LeftInkCanvasView.InkPresenter.StrokesErased += LeftInkCanvasViewPresenter_StrokesErased;
+
+			// Right Page's InkCanvas
+			RightInkCanvasView.InkPresenter.StrokesCollected += OnRightInkCanvasViewStrokesCollected;
+			RightInkCanvasView.InkPresenter.StrokesErased += RightInkCanvasViewPresenter_StrokesErased;
 		}
 		/// <summary>
 		/// detach the events when disappering
@@ -63,12 +71,12 @@ namespace XCourierApp
 
 		private void LeftInkCanvasViewPresenter_StrokesErased(XInkPresenter sender, XInkStrokesErasedEventArgs args)
 		{
-			//LeftInkCanvasView.InvalidateCanvas(false, true);
+			LeftInkCanvasView.InvalidateCanvas(false, true);
 		}
 
 		private void OnLeftInkCanvasViewStrokesCollected(Xamarin.Forms.Inking.Interfaces.IInkPresenter sender, XInkStrokesCollectedEventArgs args)
 		{
-			
+			LeftInkCanvasView.InvalidateCanvas(false, true);
 		}
 
 		private void RightInkCanvasViewPresenter_StrokesErased(XInkPresenter sender, XInkStrokesErasedEventArgs args)
@@ -78,25 +86,20 @@ namespace XCourierApp
 
 		private void OnRightInkCanvasViewStrokesCollected(Xamarin.Forms.Inking.Interfaces.IInkPresenter sender, XInkStrokesCollectedEventArgs args)
 		{
-			
+			RightInkCanvasView.InvalidateCanvas(false, true);
 		}
 
 
 		protected bool DeviceIsSpanned => DualScreenInfo.Current.SpanMode != TwoPaneViewMode.SinglePane;
 
-		private void Button_Clicked(object sender, EventArgs e)
+		private void LeftInkCanvasView_Painting(object sender, SKCanvas e)
 		{
-			var di = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+			e.Clear(SKColor.Empty);
 		}
 
-		private void ButtonDraw_Clicked(object sender, EventArgs e)
+		private void RightInkCanvasView_Painting(object sender, SKCanvas e)
 		{
-			LeftInkCanvasView.InkPresenter.InputProcessingConfiguration.Mode = XInkInputProcessingMode.Inking;
-		}
-
-		private void ButtonErase_Clicked(object sender, EventArgs e)
-		{
-			LeftInkCanvasView.InkPresenter.InputProcessingConfiguration.Mode = XInkInputProcessingMode.Erasing;
+			e.Clear(SKColor.Empty);
 		}
 	} // class 
 } // namespace
