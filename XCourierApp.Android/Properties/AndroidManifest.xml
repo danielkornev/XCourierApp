@@ -1,6 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.zetuniverse.xcourierapp" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29" />
-	<application android:label="Journal" android:theme="@style/MainTheme" android:icon="@mipmap/ic_launcher"></application>
+	<application android:label="Journal" android:theme="@style/MainTheme" android:icon="@mipmap/ic_launcher">
+		<activity
+            android:name="ZetUniverse.XCourierApp.Android.MainActivity"
+            android:label="Journal Home"
+            android:launchMode="singleTask"
+            android:excludeFromRecents="true"
+            android:screenOrientation="nosensor">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<!-- The following two intent-filters are the key to set homescreen -->
+				<category android:name="android.intent.category.HOME" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

@@ -6,14 +6,14 @@ using Android.App;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("XCourierApp.Android")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Journal")]
+[assembly: AssemblyDescription("Journal Home app for Surface Duo")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Zet Universe, Inc.")]
 [assembly: AssemblyProduct("XCourierApp.Android")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright © Zet Universe, Inc., 2021")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+[assembly: AssemblyCulture("en-US")]
 [assembly: ComVisible(false)]
 
 // Version information for an assembly consists of the following four values:

@@ -27,6 +27,8 @@ namespace XCourierApp
 			RightInkCanvasView.InkPresenter.InputDeviceTypes = XCoreInputDeviceTypes.Pen;
 
 			// override
+			// var statusbar = DependencyService.Get<IStatusBarPlatformSpecific>();
+			// statusbar.SetStatusBarColor(Color.Black);
 
 			// Left Page's InkCanvas
 			LeftInkCanvasView.InkPresenter.StrokesCollected += OnLeftInkCanvasViewStrokesCollected;
