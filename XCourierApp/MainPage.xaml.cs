@@ -12,6 +12,7 @@ using Xamarin.Forms.Inking.Views;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using XCourierApp.Storage.Journals;
+using XCourierApp.Droid.Assistance;
 
 namespace XCourierApp
 {
@@ -227,6 +228,21 @@ namespace XCourierApp
 		private void CurrentJournal_PropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
 			// TO DO: 
+		}
+
+		private void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+		{
+			this.LeftStartMenuGrid.IsVisible = true;
+		}
+
+		private void LeftStartMenuSwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+		{
+			this.LeftStartMenuGrid.IsVisible = false;
+		}
+
+		private void InvokeDigitalAssistantButton_Clicked(object sender, EventArgs e)
+		{
+			DependencyService.Get<IDigitalAssistantActivity>().OpenDigitalAssistant();
 		}
 	} // class 
 } // namespace

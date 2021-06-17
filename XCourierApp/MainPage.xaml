@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:dualScreen="clr-namespace:Xamarin.Forms.DualScreen;assembly=Xamarin.Forms.DualScreen"
 			 xmlns:inking_views="clr-namespace:Xamarin.Forms.Inking.Views;assembly=Xamarin.Forms.Inking"
+			 xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="XCourierApp.MainPage">
 
 	<dualScreen:TwoPaneView x:Name="twoPaneView" 
@@ -13,10 +14,22 @@
 		TallModeConfiguration="SinglePane">
 		<dualScreen:TwoPaneView.Pane1>
 			<Grid Padding="0">
+				<Grid.GestureRecognizers>
+					<SwipeGestureRecognizer Direction="Up" Swiped="SwipeGestureRecognizer_Swiped"/>
+				</Grid.GestureRecognizers>
 				<Image x:Name="LeftPagePaperImage" Source="paper_1.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="True" />
 				<inking_views:InkCanvasView Margin="0,0,0,0" x:Name="LeftInkCanvasView" Painting="LeftInkCanvasView_Painting"
 											MinimumHeightRequest="1800" MinimumWidthRequest="2700" 
 											HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CanvasWidth="2700" CanvasHeight="1800" />
+
+				<yummy:PancakeView BackgroundColor="#550788FA" CornerRadius="10" Margin="30" IsClippedToBounds="true" 
+								   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="LeftStartMenuGrid" IsVisible="False">
+					<yummy:PancakeView.GestureRecognizers>
+						<SwipeGestureRecognizer Direction="Down" x:Name="LeftStartMenuSwipeGestureRecognizer" Swiped="LeftStartMenuSwipeGestureRecognizer_Swiped"/>
+					</yummy:PancakeView.GestureRecognizers>
+					<!--<Image Source="unicorn.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" />-->
+					<Button x:Name="InvokeDigitalAssistantButton" HeightRequest="50" WidthRequest="50" MinimumHeightRequest="50" MinimumWidthRequest="50" Text="AI" Clicked="InvokeDigitalAssistantButton_Clicked"/>
+				</yummy:PancakeView>
 			</Grid>
 		</dualScreen:TwoPaneView.Pane1>
 		<dualScreen:TwoPaneView.Pane2>
@@ -26,7 +39,7 @@
 											MinimumHeightRequest="1800" MinimumWidthRequest="2700" 
 											HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CanvasWidth="2700" CanvasHeight="1800"/>
 
-				
+
 			</Grid>
 		</dualScreen:TwoPaneView.Pane2>
 	</dualScreen:TwoPaneView>
