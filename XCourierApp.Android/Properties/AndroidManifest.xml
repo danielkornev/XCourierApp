@@ -2,12 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.zetuniverse.xcourierapp" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29" />
 	<application android:label="Journal" android:theme="@style/MainTheme" android:icon="@mipmap/ic_launcher">
-		<activity
-            android:name="ZetUniverse.XCourierApp.Android.MainActivity"
-            android:label="Journal Home"
-            android:launchMode="singleTask"
-            android:excludeFromRecents="true"
-            android:screenOrientation="nosensor">
+		<activity android:name="ZetUniverse.XCourierApp.Android.MainActivity" android:label="Journal Home" android:launchMode="singleTask" android:excludeFromRecents="true" android:screenOrientation="nosensor">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<!-- The following two intent-filters are the key to set homescreen -->
@@ -18,4 +13,6 @@
 		</activity>
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>

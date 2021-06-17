@@ -14,27 +14,19 @@
 		<dualScreen:TwoPaneView.Pane1>
 			<Grid Padding="0">
 				<Image x:Name="LeftPagePaperImage" Source="paper_1.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="True" />
-				<inking_views:InkCanvasView Margin="0,50,0,0" x:Name="LeftInkCanvasView" Painting="LeftInkCanvasView_Painting"
+				<inking_views:InkCanvasView Margin="0,0,0,0" x:Name="LeftInkCanvasView" Painting="LeftInkCanvasView_Painting"
 											MinimumHeightRequest="1800" MinimumWidthRequest="2700" 
 											HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CanvasWidth="2700" CanvasHeight="1800" />
-
-				<Grid HeightRequest="50" MinimumHeightRequest="50" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="#FFECDDD8">
-					
-				</Grid>
-
-
 			</Grid>
 		</dualScreen:TwoPaneView.Pane1>
 		<dualScreen:TwoPaneView.Pane2>
 			<Grid Padding="0">
 				<Image x:Name="RightPagePaperImage" Source="paper_1.png" RotationY="180" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="True"/>
-				<inking_views:InkCanvasView Margin="0,50,0,0" x:Name="RightInkCanvasView" Painting="RightInkCanvasView_Painting"
+				<inking_views:InkCanvasView Margin="0,0,0,0" x:Name="RightInkCanvasView" Painting="RightInkCanvasView_Painting"
 											MinimumHeightRequest="1800" MinimumWidthRequest="2700" 
 											HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CanvasWidth="2700" CanvasHeight="1800"/>
 
-				<Grid HeightRequest="50" MinimumHeightRequest="50" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="#FFECDDD8">
-
-				</Grid>
+				
 			</Grid>
 		</dualScreen:TwoPaneView.Pane2>
 	</dualScreen:TwoPaneView>
